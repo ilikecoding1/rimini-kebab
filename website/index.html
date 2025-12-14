@@ -44,16 +44,19 @@
             margin: 10px auto;
             max-width: 500px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .menu-item {
+
+            /* Flexbox for button alignment */
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .menu-item img {
-            width: 100px;
-            margin-right: 15px;
+        .card img {
+            width: 100%;
+            margin-bottom: 10px;
             border-radius: 10px;
+        }
+        .card p {
+            flex-grow: 1; /* Description stretches to push button down */
         }
         button.order {
             background-color: #b71c1c;
@@ -63,6 +66,7 @@
             width: 100%;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
         footer {
             background-color: #333;
@@ -70,6 +74,11 @@
             text-align: center;
             padding: 15px;
             margin-top: 20px;
+        }
+        #menu div.card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
     </style>
 </head>
@@ -112,89 +121,88 @@
 <section id="menu" class="active">
     <div class="card" style="max-width:1200px">
         <h2>Menu</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+        <div class="card-container">
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/003/image/medium/SK%20pui%202.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/003/image/medium/SK%20pui%202.png" alt="">
                 <h3>Small Menu</h3>
                 <p>Small kebab + fries + cola</p>
-                <strong>7.99 €</strong><br><br>
+                <strong>7.99 €</strong><br>
                 <button class="order" onclick="addToCart('Small Menu')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/477/image/medium/starkebab%20pui.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/477/image/medium/starkebab%20pui.png" alt="">
                 <h3>Medium Menu</h3>
                 <p>Medium kebab + fries + cola</p>
-                <strong>9.99 €</strong><br><br>
+                <strong>9.99 €</strong><br>
                 <button class="order" onclick="addToCart('Medium Menu')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/100/image/medium/familyx3new.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/100/image/medium/familyx3new.png" alt="">
                 <h3>Big Menu</h3>
                 <p>Large kebab + fries + cola</p>
-                <strong>11.99 €</strong><br><br>
+                <strong>11.99 €</strong><br>
                 <button class="order" onclick="addToCart('Big Menu')">Add to cart</button>
             </div>
 
-            <!-- New Menu Items -->
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/252/image/medium/start_rapid.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/252/image/medium/start_rapid.png" alt="">
                 <h3>Coffee & Croissant</h3>
                 <p>Fresh coffee + croissant</p>
-                <strong>3.50 €</strong><br><br>
+                <strong>3.50 €</strong><br>
                 <button class="order" onclick="addToCart('Coffee & Croissant')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/483/image/medium/SK_box.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/483/image/medium/SK_box.png" alt="">
                 <h3>Star Box</h3>
                 <p>Mixed menu box</p>
-                <strong>8.99 €</strong><br><br>
+                <strong>8.99 €</strong><br>
                 <button class="order" onclick="addToCart('Star Box')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/056/image/medium/pui%20crocant.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/056/image/medium/pui%20crocant.png" alt="">
                 <h3>Chicken Nuggets</h3>
                 <p>Crispy chicken nuggets</p>
-                <strong>4.99 €</strong><br><br>
+                <strong>4.99 €</strong><br>
                 <button class="order" onclick="addToCart('Chicken Nuggets')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/009/image/medium/cartofi_pai.jpg" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/009/image/medium/cartofi_pai.jpg" alt="">
                 <h3>French Fries</h3>
-                <strong>2.99 €</strong><br><br>
+                <strong>2.99 €</strong><br>
                 <button class="order" onclick="addToCart('French Fries')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/061/image/medium/Ice%20Tea%20Blue.jpg" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/061/image/medium/Ice%20Tea%20Blue.jpg" alt="">
                 <h3>Ice Tea Blue</h3>
-                <strong>1.99 €</strong><br><br>
+                <strong>1.99 €</strong><br>
                 <button class="order" onclick="addToCart('Ice Tea Blue')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/060/image/medium/Ice%20Tea%20Red.jpg" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/060/image/medium/Ice%20Tea%20Red.jpg" alt="">
                 <h3>Ice Tea Red</h3>
-                <strong>1.99 €</strong><br><br>
+                <strong>1.99 €</strong><br>
                 <button class="order" onclick="addToCart('Ice Tea Red')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/264/image/medium/ceai.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/264/image/medium/ceai.png" alt="">
                 <h3>Tea</h3>
-                <strong>1.50 €</strong><br><br>
+                <strong>1.50 €</strong><br>
                 <button class="order" onclick="addToCart('Tea')">Add to cart</button>
             </div>
 
             <div class="card">
-                <img src="https://starkebab.md/paperclip/App/Product/000/000/432/image/medium/pepsi%20asort.png" width="100%">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/432/image/medium/pepsi%20asort.png" alt="">
                 <h3>Coca Cola / Pepsi / Fanta 1L</h3>
-                <strong>2.50 €</strong><br><br>
+                <strong>2.50 €</strong><br>
                 <button class="order" onclick="addToCart('Coca Cola / Pepsi / Fanta 1L')">Add to cart</button>
             </div>
 
@@ -272,27 +280,36 @@ function removeFromCart(index) {
     renderCart();
 }
 
+// ✅ Updated placeOrder() sending orders to local server
 function placeOrder() {
     if(cartItems.length === 0) {
         document.getElementById('checkoutMsg').innerText = 'Cart is empty.';
         return;
     }
-    let orderNumber = parseInt(localStorage.getItem('orderNumber') || '0') + 1;
-    localStorage.setItem('orderNumber', orderNumber);
 
-    let content = 'Order n.' + orderNumber + '\nItems:\n';
-    cartItems.forEach((i, idx) => content += (idx+1) + '. ' + i + '\n');
-    content += '\n---\n';
+    const order = {
+        orderNumber: parseInt(localStorage.getItem('orderNumber') || '0') + 1,
+        items: cartItems,
+        time: new Date().toISOString()
+    };
+    localStorage.setItem('orderNumber', order.orderNumber);
 
-    let blob = new Blob([content], { type: 'text/plain' });
-    let a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'orders.txt';
-    a.click();
-
-    document.getElementById('checkoutMsg').innerText = 'Order placed! Downloaded orders.txt';
-    cartItems = [];
-    renderCart();
+    // Send order to local server
+    fetch('http://localhost:5000/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById('checkoutMsg').innerText = 'Order sent to server!';
+        cartItems = [];
+        renderCart();
+    })
+    .catch(err => {
+        console.error(err);
+        document.getElementById('checkoutMsg').innerText = 'Failed to send order.';
+    });
 }
 </script>
 
