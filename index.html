@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rimini Kebab House</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #b71c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 120px;
+        }
+        nav {
+            background-color: #7f0000;
+            padding: 10px;
+            text-align: center;
+        }
+        nav button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ffcc80;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        section {
+            display: none;
+            padding: 20px;
+        }
+        section.active {
+            display: block;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .menu-item img {
+            width: 100px;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+        button.order {
+            background-color: #b71c1c;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://www.shutterstock.com/shutterstock/photos/2477831147/display_1500/stock-vector-chef-with-knife-and-skewer-of-meat-shawarma-street-fast-food-kebab-emblem-or-logo-vector-2477831147.jpg" alt="Kebab Logo">
+    <h1>Rimini Kebab House</h1>
+    <p>Best Kebabs in Town</p>
+</header>
+
+<nav>
+    <button onclick="showSection('login')">Login</button>
+    <button onclick="showSection('register')">Register</button>
+    <button onclick="showSection('menu')">Menu</button>
+    <button onclick="showSection('findus')">Find Us</button>
+</nav>
+
+<section id="login" class="active">
+    <div class="card">
+        <h2>Login</h2>
+        <input type="text" id="loginUser" placeholder="Username"><br><br>
+        <input type="password" id="loginPass" placeholder="Password"><br><br>
+        <button class="order" onclick="login()">Login</button>
+        <p id="loginMsg"></p>
+    </div>
+</section>
+
+<section id="register">
+    <div class="card">
+        <h2>Register</h2>
+        <input type="text" id="regUser" placeholder="Username"><br><br>
+        <input type="email" id="regEmail" placeholder="Email"><br><br>
+        <input type="password" id="regPass" placeholder="Password"><br><br>
+        <button class="order" onclick="register()">Register</button>
+        <p id="regMsg"></p>
+    </div>
+</section>
+
+<section id="menu" class="active">
+    <div class="card" style="max-width:1200px">
+        <h2>Menu</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/003/image/medium/SK%20pui%202.png" width="100%">
+                <h3>Small Menu</h3>
+                <p>Small kebab + fries + cola</p>
+                <strong>7.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Small Menu')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/477/image/medium/starkebab%20pui.png" width="100%">
+                <h3>Medium Menu</h3>
+                <p>Medium kebab + fries + cola</p>
+                <strong>9.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Medium Menu')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/100/image/medium/familyx3new.png" width="100%">
+                <h3>Big Menu</h3>
+                <p>Large kebab + fries + cola</p>
+                <strong>11.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Big Menu')">Add to cart</button>
+            </div>
+
+            <!-- New Menu Items -->
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/252/image/medium/start_rapid.png" width="100%">
+                <h3>Coffee & Croissant</h3>
+                <p>Fresh coffee + croissant</p>
+                <strong>3.50 €</strong><br><br>
+                <button class="order" onclick="addToCart('Coffee & Croissant')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/483/image/medium/SK_box.png" width="100%">
+                <h3>Star Box</h3>
+                <p>Mixed menu box</p>
+                <strong>8.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Star Box')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/056/image/medium/pui%20crocant.png" width="100%">
+                <h3>Chicken Nuggets</h3>
+                <p>Crispy chicken nuggets</p>
+                <strong>4.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Chicken Nuggets')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/009/image/medium/cartofi_pai.jpg" width="100%">
+                <h3>French Fries</h3>
+                <strong>2.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('French Fries')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/061/image/medium/Ice%20Tea%20Blue.jpg" width="100%">
+                <h3>Ice Tea Blue</h3>
+                <strong>1.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Ice Tea Blue')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/060/image/medium/Ice%20Tea%20Red.jpg" width="100%">
+                <h3>Ice Tea Red</h3>
+                <strong>1.99 €</strong><br><br>
+                <button class="order" onclick="addToCart('Ice Tea Red')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/264/image/medium/ceai.png" width="100%">
+                <h3>Tea</h3>
+                <strong>1.50 €</strong><br><br>
+                <button class="order" onclick="addToCart('Tea')">Add to cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://starkebab.md/paperclip/App/Product/000/000/432/image/medium/pepsi%20asort.png" width="100%">
+                <h3>Coca Cola / Pepsi / Fanta 1L</h3>
+                <strong>2.50 €</strong><br><br>
+                <button class="order" onclick="addToCart('Coca Cola / Pepsi / Fanta 1L')">Add to cart</button>
+            </div>
+
+        </div>
+        <hr>
+        <h3>Cart</h3>
+        <ul id="cart"></ul>
+        <button class="order" onclick="placeOrder()">Order Now</button>
+        <p id="checkoutMsg"></p>
+    </div>
+</section>
+
+<section id="findus">
+    <div class="card">
+        <h2>Find Us</h2>
+        <p>📍 Via Uffogliano 67, Rimini, Italy</p>
+        <p>📞 Phone: +39 327 390 8772</p>
+        <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba" width="100%">
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Rimini Kebab House</p>
+</footer>
+
+<script>
+let users = JSON.parse(localStorage.getItem('users') || '{}');
+let cartItems = [];
+
+function showSection(id) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function register() {
+    let user = document.getElementById('regUser').value;
+    let pass = document.getElementById('regPass').value;
+    if(user && pass) {
+        users[user] = pass;
+        localStorage.setItem('users', JSON.stringify(users));
+        document.getElementById('regMsg').innerText = 'Registered successfully! (saved)';
+    } else {
+        document.getElementById('regMsg').innerText = 'Fill all fields.';
+    }
+}
+
+function login() {
+    let user = document.getElementById('loginUser').value;
+    let pass = document.getElementById('loginPass').value;
+    if(users[user] === pass) {
+        document.getElementById('loginMsg').innerText = 'Login successful! (saved user)';
+        showSection('menu');
+    } else {
+        document.getElementById('loginMsg').innerText = 'Invalid credentials';
+    }
+}
+
+function addToCart(item) {
+    cartItems.push(item);
+    renderCart();
+}
+
+function renderCart() {
+    let cart = document.getElementById('cart');
+    cart.innerHTML = '';
+    cartItems.forEach((item, index) => {
+        let li = document.createElement('li');
+        li.innerHTML = item + ' <button onclick="removeFromCart(' + index + ')">❌</button>';
+        cart.appendChild(li);
+    });
+}
+
+function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    renderCart();
+}
+
+function placeOrder() {
+    if(cartItems.length === 0) {
+        document.getElementById('checkoutMsg').innerText = 'Cart is empty.';
+        return;
+    }
+    let orderNumber = parseInt(localStorage.getItem('orderNumber') || '0') + 1;
+    localStorage.setItem('orderNumber', orderNumber);
+
+    let content = 'Order n.' + orderNumber + '\nItems:\n';
+    cartItems.forEach((i, idx) => content += (idx+1) + '. ' + i + '\n');
+    content += '\n---\n';
+
+    let blob = new Blob([content], { type: 'text/plain' });
+    let a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'orders.txt';
+    a.click();
+
+    document.getElementById('checkoutMsg').innerText = 'Order placed! Downloaded orders.txt';
+    cartItems = [];
+    renderCart();
+}
+</script>
+
+</body>
+</html>
